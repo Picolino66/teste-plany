@@ -1,0 +1,40 @@
+<div class="d-flex flex-column overflow-hidden kanban">
+  <div class="navbar-header d-flex w-100">
+    <span class="content-header">Página Inicial</span>
+  </div>
+
+  <button class="btn btn-outline-danger mr-2" (click)="open()">
+    <div>Criar</div>
+  </button>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Email</th>
+        <th scope="col">Aniversário</th>
+        <th scioe="col">Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of customer; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ c.name }}</td>
+        <td>{{ c.email }}</td>
+        <td>{{ c.birthDate | date }}</td>
+        <td>
+          <div class="btn-group btn-group-toggle">
+            <button class="btn btn-outline-primary mr-2" (click)="open(c)">
+              <div>Editar</div>
+            </button>
+            <button class="btn btn-outline-danger mr-2" (click)="excluir(c)">
+              <div>Excluir</div>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
